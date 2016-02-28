@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		
+	</style>
 </head>
 <body>
 	<section>
@@ -14,6 +17,173 @@
 			<p>数据类型、运算、对象、Function、继承、闭包、作用域、原型链、事件、RegExp、JSON、Ajax、DOM、BOM、内存泄漏、跨域、异步装载、模板引擎、前端MVC、路由、模块化、Canvas、ECMAScript 6、Nodejs</p>
     		<h3>其他:</h3>
 			<p>移动端、响应式、自动化构建、HTTP、离线存储、WEB安全、优化、重构、团队协作、可维护、易用性、SEO、UED、架构、职业生涯、快速学习能力</p>
+		</div>
+	</section>
+	<section>
+		<h1>具体知识点</h1>
+		<div style="background:#F0F0F0">
+			<dl>
+				<dt>浏览器内核</dt><dd>浏览器内核主要分为渲染引擎（layout engine和 Rendering engine，负责网页内容以及css渲染）和js引擎（解析和执行js来实现网页的动态效果）。1）Trident内核：IE,360等；2）Gecko：ff等；3）Presto：Opera；4）webkit:Safari,chrome等</dd>
+			</dl>
+			<dl>
+				<dt>H5离线储存</dt><dd>含义：在没有连接网络时，也可以正常访问站点或者应用，在联网后，更新机器上设置的那些缓存文件。</dd>
+				<dd>原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+				</dd>
+				<dd>
+					使用：
+				1、页面头部像下面一样加入一个manifest的属性；
+				2、在cache.manifest文件的编写离线存储的资源；
+				    CACHE MANIFEST
+				    #v0.11
+				    CACHE:
+				    js/app.js
+				    css/style.css
+				    NETWORK:
+				    resourse/logo.png
+				    FALLBACK:
+				    / /offline.html
+				3、在离线状态时，操作window.applicationCache进行需求实现。
+				</dd>
+			</dl>
+			<dl>
+				<dt>iframe缺点</dt>
+				<dd>
+					1、iframe会阻塞主页面的onload事件
+					2、搜索引擎无法解读
+					3、iframe和主页面共享连接池，而浏览器对相同域的连接数有限制，影响页面并行加载
+				</dd>
+			</dl>
+			<dl>
+				<dt>浏览器内多个标签页间通信</dt>
+				<dd>调用localstorage、cookie等本地存储方式。</dd>
+			</dl>
+			<dl>
+				<dt>webSocket如何兼容低浏览器？</dt>
+				<dd>Adobe Flash Socket 、ActiveX HTMLFile (IE) 、基于 multipart 编码发送 XHR 、基于长轮询的 XHR</dd>
+			</dl>
+			<dl>
+				<dt>页面可见性（Page Visibility）API 可以有哪些用途？</dt>
+				<dd>在页面被切换到其他后台进程的时候，自动暂停音乐或视频的播放；</dd>
+			</dl>
+			<dl>
+				<dt>在页面上实现一个圆形的可点击区域</dt>
+				<dd>1、map+area或者svg；2、border-radius；3、纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等</dd>
+			</dl>
+		</div>
+		<div style="background:#EEDFCC">
+			<dl>
+				<dt>不同IE版本下的标记</dt>
+				<dd>
+					css
+				      .bb{
+				          background-color:#f1ee18;/*所有识别*/
+				          .background-color:#00deff\9; /*IE6、7、8识别*/
+				          +background-color:#a200ff;/*IE6、7识别*/
+				          _background-color:#1e0bd1;/*IE6识别*/
+				      }
+				</dd>
+			</dl>
+			<dl>
+				<dt>css初始化代码</dt>
+				<dd>
+					淘宝的样式初始化代码：
+					body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }<br>
+					body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }<br>
+					h1, h2, h3, h4, h5, h6{ font-size:100%; }<br>
+					address, cite, dfn, em, var { font-style:normal; }<br>
+					code, kbd, pre, samp { font-family:couriernew, courier, monospace; }<br>
+					small{ font-size:12px; }<br>
+					ul, ol { list-style:none; }<br>
+					a { text-decoration:none; }<br>
+					a:hover { text-decoration:underline; }<br>
+					sup { vertical-align:text-top; }<br>
+					sub{ vertical-align:text-bottom; }<br>
+					legend { color:#000; }<br>
+					fieldset, img { border:0; }<br>
+					button, input, select, textarea { font-size:100%; }<br>
+					table { border-collapse:collapse; border-spacing:0; }<br>
+				</dd>
+			</dl>
+			<dl>
+				<dt>CSS里的伪元素和伪类</dt>
+				<dd>
+					1、css里的伪元素是：::first-letter,::first-line,::before,::after<br>
+					2、css里的伪类是：active,focus,hover,link,visited,first-child,lang
+				</dd>
+			</dl>
+			<dl>
+				<dt>修改chrome记住密码后自动填充表单的黄色背景</dt>
+				<dd>
+					1、原因是chrome默认给自动填充的input表单赋予黄色背景，代码为
+					<pre>	
+						<code>
+							input:-webkit-autofill{
+								background-color:#faffbd;
+								background-image:none;
+								color:#000;
+							}
+						</code>
+					</pre>
+					<br>
+					2、改变的方法（主要是覆盖浏览器赋予的颜色）：
+					1）纯色背景（如果有圆角，也可以增加在下列代码中）
+					<pre>	
+						<code>
+							input:-webkit-autofill{
+								background-color:#fff;
+								background-image:none;
+								color:#000;
+							}
+						</code>
+					</pre>
+					2）有图片背景
+					<code>
+						1、图片简单，则使用1）中的内阴影来实现；
+						2、复杂只能牺牲chrome自动填充表单的功能，使用 js 去实现
+					</code>
+				</dd>
+			</dl>
+			<dl>
+				<dt>在chrome中设置小于12px的字符</dt>
+				<dd>-webkit-text-size-adjust:none;</dd>
+			</dl>
+			<dl>
+				<dt>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</dt>
+			</dl>
+			<dl>
+				<dt>png、jpg、gif图片格式</dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt>cookie隔离</dt>
+				<dd></dd>
+			</dl>
+		</div>
+		<div>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<dl>
+				<dt></dt>
+				<dd></dd>
+			</dl>
 		</div>
 	</section>
 </body>
